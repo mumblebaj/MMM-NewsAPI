@@ -1,0 +1,27 @@
+{
+  "name": "mmm-newsapi",
+  "version": "1.0.0",
+  "description": "News from NewsApi.org",
+  "main": "MMM-NewsAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mumblebaj/MMM-NewsAPI.git"
+  },
+  "keywords": [
+    "news"
+  ],
+  "author": "Mumblebaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mumblebaj/MMM-NewsAPI/issues"
+  },
+  "homepage": "https://github.com/mumblebaj/MMM-NewsAPI#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "request": "^2.88.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
