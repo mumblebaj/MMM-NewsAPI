@@ -2,7 +2,6 @@ Module.register("MMM-NewsAPI", {
     // Declare default inputs
     defaults: {
         apiKey: "",
-		type: "horizontal",
 		choice: "headlines",
 		pageSize: 20,
 		timeFormat: "relative",
@@ -54,7 +53,7 @@ Module.register("MMM-NewsAPI", {
     getDom: function() {
         var wrapper = document.createElement("div")
         wrapper.id = "NEWS"
-        wrapper.className = this.config.type
+        wrapper.className = "horizontal"
         var newsContent = document.createElement("div")
         newsContent.id = "NEWS_CONTENT"
         wrapper.appendChild(newsContent)
@@ -110,7 +109,7 @@ Module.register("MMM-NewsAPI", {
     },
 
     readTemplate: function() {
-        var file = this.config.templateFile
+        var file = "template.html"
         var url = "modules/MMM-NewsAPI/" + file
         var xmlHttp = new XMLHttpRequest()
         xmlHttp.onreadystatechange = () => {
