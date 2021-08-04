@@ -7,7 +7,6 @@ Module.register("MMM-NewsAPI", {
 		timeFormat: "relative",
 		drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
-		templateFile: "template.html",
         query: {
             country: "us",
             category: "",
@@ -16,10 +15,7 @@ Module.register("MMM-NewsAPI", {
             sources: "",
             domains: "",
             excludeDomains: "",
-            from: "",
-            to: "",
-            language: "en",
-            sortBy: ""
+            language: "en"
         }
     },
 
