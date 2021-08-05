@@ -37,14 +37,18 @@ The following properties can be configured:
 | ---------------------------- | -----------
 | `header`                     | The header text <br><br> **Default value:** `'NEWS'`
 | `choice`                     | Type of query to be instantiated <br><br> **Possible values:** `headlines` or `everything` <br> **Default value:** `headlines`
+| `type`                       | Orientation <br><br> **Possible values:** `horizontal` or `vertical` <br> **Default value:** `horizontal`. Module does currently not cater for vertical
 | `pageSize`                   | The number of articles to be returned. Max = 100 <br> **Default value:** `20`
 | `drawInterval`               | The amount of time each article is displayed <br> **Default value:** `30 seconds`
-| `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey 
+| `templateFile`               | The template file to use. You can create your own template file and reference here. For now use `template.html`
+| `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to 100*60*60 
 | `apiKey`                     | You can obtain an API Key from [NewsAPi.org](https://newsapi.org/)
 
 ## Query Options
 
-The following query options can be defined
+**The following query options can be defined** <br>
+When specifying the query options take note of the following: <br>
+When using `headlines`, `country` and `sources` cannot be used together. <br>The `domains` option cannot be used on it's own, you have to specify any of the following parameters with it: `sources`, `q`, `language`, `country`, `category`. <br>When using `everything`, you cannot use the `country` option. <br>To try more combinations you can visit [NewsAPi.org](https://newsapi.org/) 
 
 | Option                       | Description
 | ---------------------------- | -----------
