@@ -63,7 +63,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
 
 
 ## Config Example
-
+**everything** Example
 ````javascript
   {
                 module: "MMM-NewsAPI",
@@ -83,14 +83,43 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                                 category: "",
                                 q: "",
                                 qInTitle: "",
-                                sources: "cnn,abc",
-                                domains: "",
+                                sources: "",
+                                domains: "cnn.com,nytimes.com,news24.com",
                                 excludeDomains: "",
                                 language: ""
                         }
                 }
         },
 ````
+**headlines** Example
+````javascript
+  {
+                module: "MMM-NewsAPI",
+                header: "news",
+                position: "bottom_bar",
+                config: {
+                        apiKey: "",
+                        type: "horizontal",
+                        choice: "headlines",
+                        pageSize: 10,
+                        className: "NEWS",
+                        drawInterval: 1000*30,
+                        templateFile: "template.html",
+                        fetchInterval: 1000*60*60,
+                        query: {
+                                country: "us",
+                                category: "",
+                                q: "covid",
+                                qInTitle: "",
+                                sources: "",
+                                domains: "nytimes.com",
+                                excludeDomains: "",
+                                language: ""
+                        }
+                }
+        },
+````
+
 **Notes** 
 * `apiKey` is **required**. You should first create an account on https://newsapi.org/ 
 
