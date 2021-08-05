@@ -2,6 +2,7 @@ Module.register("MMM-NewsAPI", {
     // Declare default inputs
     defaults: {
         apiKey: "",
+        type: "horizontal",
 		choice: "headlines",
 		pageSize: 20,
 		timeFormat: "relative",
@@ -20,18 +21,9 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Get the Stylesheet
-    getStles: function() {
-        return["MMM-NewsAPI.css"]
+    getStyles: function() {
+        return[this.file("MMM-NewsAPI.css")]
     },
-
-    // Declare any translations
-    // getTranslations: function() {
-    //     return {
-    //         en: "translations/en.json",
-    //         de: "translations/de.json",
-    //         fr: "translations/fr.json",
-    //     }
-    // },
 
     // Start process
     start: function() {
@@ -49,7 +41,7 @@ Module.register("MMM-NewsAPI", {
     getDom: function() {
         var wrapper = document.createElement("div")
         wrapper.id = "NEWS"
-        wrapper.className = "horizontal"
+        wrapper.className = this.config.type
         var newsContent = document.createElement("div")
         newsContent.id = "NEWS_CONTENT"
         wrapper.appendChild(newsContent)
@@ -86,7 +78,7 @@ Module.register("MMM-NewsAPI", {
         } else if (this.config.choice === "everything") {
             this.sendSocketNotification("everything", this.config)
         } else { 
-            console.log("NewsAPI: Invalid choice defined in COnfig") 
+            console.log("NewsAPI: Invalid choice defined in config/config.js") 
             return true
         }
     },
@@ -105,7 +97,7 @@ Module.register("MMM-NewsAPI", {
     },
 
     readTemplate: function() {
-        var file = "template.html"
+        var file = this.config.templateFile
         var url = "modules/MMM-NewsAPI/" + file
         var xmlHttp = new XMLHttpRequest()
         xmlHttp.onreadystatechange = () => {
@@ -137,9 +129,9 @@ Module.register("MMM-NewsAPI", {
 
         var imgtag = (article.urlToImage) ? `<img class="articleImage" src="` + article.urlToImage + `"/>` : ""
         template = template.replace("%ARTICLEIMAGE%", imgtag)
-        var className = (redTitle) ? "" : ""
+        var className = (artile.className) ? article.className : ""
         template = template.replace("%CLASSNAME%", className)
-        template = template.replace("%AUHTOR%", article.author)
+        template = template.replace("%AUTHOR%", article.author)
         var news = document.getElementById("NEWS")
 
         var newsContent = document.getElementById("NEWS_CONTENT")

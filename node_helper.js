@@ -87,7 +87,7 @@ module.exports = NodeHelper.create({
             if(!article.description) article.description = article.content
             results.push(article)
         }
-        if (results.length > 0) this.articles = this.articles.concat(result)
+        if (results.length > 0) this.articles = this.articles.concat(results)
         this.sendSocketNotification("UPDATE", this.articles)
     },
 
@@ -107,8 +107,6 @@ module.exports = NodeHelper.create({
             this.deconHeadlines(payload)
         } else if (notification === "everything") {
             this.deconEverything(payload)
-        } else {
-            console.log("MMM-NewsAPI: NO valid choice received")
         }
     },
 })
