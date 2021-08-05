@@ -69,13 +69,13 @@
   #NEWS.horizontal .content .articleImage {
     margin-right:10px;
     float:left;
-    max-width:15vw;
-    max-height:15vh;
+    max-width:10vw;
+    max-height:10vh;
   }
   
 /* Type: Vertical */
   #NEWS.vertical {
-    font-size: calc(3vh);
+    font-size: calc(2vh);
     width:400px;
   }
   

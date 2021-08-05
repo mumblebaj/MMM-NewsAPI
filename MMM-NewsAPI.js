@@ -3,10 +3,12 @@ Module.register("MMM-NewsAPI", {
     defaults: {
         apiKey: "",
         type: "horizontal",
-		choice: "headlines",
-		pageSize: 20,
-		timeFormat: "relative",
-		drawInterval: 1000*30,
+        choice: "headlines",
+        pageSize: 20,
+        timeFormat: "relative",
+        className: "redTitle",
+        templateFile: "template.html",
+        drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
         query: {
             country: "us",
@@ -22,7 +24,7 @@ Module.register("MMM-NewsAPI", {
 
     // Get the Stylesheet
     getStyles: function() {
-        return[this.file("MMM-NewsAPI.css")]
+        return [this.file("MMM-NewsAPI.css")]
     },
 
     // Start process
@@ -64,7 +66,6 @@ Module.register("MMM-NewsAPI", {
         if (typeof delay !== "undefined"  && delay >= 0) {
             nextLoad = delay
         }
-        console.log("Delay till next load", delay)
         var self = this
         setInterval(function() {
             self.getInfo()
@@ -72,13 +73,14 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Send Socket Notification and start node_helper
+    // Send Socket Notification and start node_helper
     getInfo: function() {
         if (this.config.choice === "headlines"){
             this.sendSocketNotification("headlines", this.config)
         } else if (this.config.choice === "everything") {
             this.sendSocketNotification("everything", this.config)
-        } else { 
-            console.log("NewsAPI: Invalid choice defined in config/config.js") 
+        } else {
+            console.log("NewsAPI: Invalid choice defined in config/config.js. Use 'headlines' or 'everything'")
             return true
         }
     },
@@ -104,7 +106,7 @@ Module.register("MMM-NewsAPI", {
             var res = []
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) this.template = xmlHttp.responseText
             else if (xmlHttp.status !== 200 && xmlHttp.readyState !== 1) {
-                console.log("A Problem has been encountered retrieving the Template FIle", "("+xmlHttp.statusText+")")
+                console.log("A Problem has been encountered retrieving the Template File", "("+xmlHttp.statusText+")")
             }
         }
         xmlHttp.open("GET", url, true)
@@ -129,8 +131,8 @@ Module.register("MMM-NewsAPI", {
 
         var imgtag = (article.urlToImage) ? `<img class="articleImage" src="` + article.urlToImage + `"/>` : ""
         template = template.replace("%ARTICLEIMAGE%", imgtag)
-        var className = (artile.className) ? article.className : ""
-        template = template.replace("%CLASSNAME%", className)
+        var className = (article.className) ? article.className : ""
+        template = template.replace("%CLASSNAME%", className) //"NEWS"
         template = template.replace("%AUTHOR%", article.author)
         var news = document.getElementById("NEWS")
 
