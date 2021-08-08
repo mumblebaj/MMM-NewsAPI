@@ -82,6 +82,8 @@ module.exports = NodeHelper.create({
         for (j in ret.articles) {
             var article = ret.articles[j]
             article.sourceName = article.source.name
+            var time = moment(article.publishedAt)
+            article.publishedAt = time.fromNow()
             if(!article.content) article.content = article.description
             if(!article.author) article.author = ""
             if(!article.description) article.description = article.content
