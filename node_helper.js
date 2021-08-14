@@ -29,6 +29,7 @@ module.exports = NodeHelper.create({
             }
             if (q.hasOwnProperty("q") && q.q !== "") qs = Object.assign({}, qs, {"q":q["q"]})
             if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qIntTitle":q["qInTitle"]})
+            if (q.hasOwnProperty("category") && q.category !== "") qs = Object.assign({}, qs, {"category":q["category"]})
             if (q.hasOwnProperty("domains") && q.domains !== "") {
                 var d = q["domains"].replace(/\s/g, "")
                 qs = Object.assign({}, qs, {"domains":d})
@@ -52,6 +53,12 @@ module.exports = NodeHelper.create({
         for(i in query) {
             var q = query[i]
             var qs = {}
+            if (q.hasOwnProperty("country") && q.country !== "") {
+                console.log("[MMM-NEWSAPI] Invalid Option specified. Country not allowed with 'everything'!")
+            }
+            if (q.hasOwnProperty("category") && q.category !== "") {
+                console.log("[MMM-NEWSAPI] Invalid Option specified. Country not allowed with 'everything'!")
+            }
             if (q.hasOwnProperty("q") && q.q !== "") qs =Object.assign({}, qs, {"q":q["q"]})
             if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qIntTitle":q["qInTitle"]})
             if (q.hasOwnProperty("domains") && q.domains !== "") {
