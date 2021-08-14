@@ -39,7 +39,13 @@ module.exports = NodeHelper.create({
                 qs = Object.assign({}, qs, {"excludeDomains":ed})
             }
             if (q.hasOwnProperty("language") && q.language !== "") qs = Object.assign({}, qs, {"language":q["language"]})
-            if (q.hasOwnProperty("country") && q.country !== "" && q.sources === "") qs = Object.assign({}, qs, {"country":q["country"]})
+            if (q.hasOwnProperty("country") && q.country !== "") {
+                if (q.sources === "") {
+                    qs = Object.assign({}, qs, {"country":q["country"]})
+                } else if (!q.sources) {
+                    qs = Object.assign({}, qs, {"country":q["country"]})
+                }
+            } 
             qs = Object.assign({}, qs, {"pageSize":payload.pageSize})
             qs = Object.assign({}, qs, {"apiKey":payload.apiKey})
             var qp = querystring.stringify(qs)
