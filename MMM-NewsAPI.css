@@ -21,65 +21,65 @@
     animation: hide linear 1s;
   }
   
-  #NEWS {
+  #NEWSAPI {
     line-height:1.1em;
   }
   
-  #NEWS .header .title {
+  #NEWSAPI .header .title {
     display:block;
     color:#FFF;
-    font-size:95%;
+    font-size:99%;
   
   }
   
-  #NEWS .content {
+  #NEWSAPI .content {
     padding:10px;
-    font-size:80%;
+    font-size:90%;
   }
   
-  #NEWS .footer {
+  #NEWSAPI .footer {
     text-align:right;
   }
-  #NEWS .footer .sourceName,
-  #NEWS .footer .publishedAt,
-  #NEWS .footer .author {
-    font-size:70%;
+  #NEWSAPI .footer .sourceName,
+  #NEWSAPI .footer .publishedAt,
+  #NEWSAPI .footer .author {
+    font-size:80%;
     text-align:right;
     display:inline-block;
   }
   
-  #NEWS .footer .sourceName {
+  #NEWSAPI .footer .sourceName {
     text-transform: uppercase;
   }
   
   /* custom className */
-  #NEWS .redTitle .title {
+  #NEWSAPI .redTitle .title {
     color:#F99;
   }
   
   /* Type: Horizontal */
-  #NEWS.horizontal {
+  #NEWSAPI.horizontal {
     width:100%;
   }
   
-  #NEWS.horizontal .content {
+  #NEWSAPI.horizontal .content {
     text-align:center;
   }
   
-  #NEWS.horizontal .content .articleImage {
+  #NEWSAPI.horizontal .content .articleImage {
     margin-right:10px;
     float:left;
-    max-width:10vw;
-    max-height:10vh;
+    max-width:15vw;
+    max-height:15vh;
   }
   
 /* Type: Vertical */
-  #NEWS.vertical {
+  #NEWSAPI.vertical {
     font-size: calc(2vh);
     width:400px;
   }
   
-  #NEWS.vertical .content .articleImage {
+  #NEWSAPI.vertical .content .articleImage {
     max-width:400px;
     max-height:300px;
     margin-left:auto;
@@ -87,7 +87,7 @@
     display:block;
   }
   
-  #NEWS.vertical #NEWS_CONTENT {
+  #NEWSAPI.vertical #NEWSAPI_CONTENT {
     padding-bottom:5px;
   }
   

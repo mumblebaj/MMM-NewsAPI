@@ -6,7 +6,7 @@ Module.register("MMM-NewsAPI", {
         choice: "headlines",
         pageSize: 20,
         timeFormat: "relative",
-        className: "redTitle",
+        // className: "NEWSAPI",
         templateFile: "template.html",
         drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
@@ -42,7 +42,7 @@ Module.register("MMM-NewsAPI", {
 
     getDom: function() {
         var wrapper = document.createElement("div")
-        wrapper.id = "NEWS"
+        wrapper.id = "NEWSAPI"
         wrapper.className = this.config.type
         var newsContent = document.createElement("div")
         newsContent.id = "NEWS_CONTENT"
@@ -132,9 +132,9 @@ Module.register("MMM-NewsAPI", {
         var imgtag = (article.urlToImage) ? `<img class="articleImage" src="` + article.urlToImage + `"/>` : ""
         template = template.replace("%ARTICLEIMAGE%", imgtag)
         var className = (article.className) ? article.className : ""
-        template = template.replace("%CLASSNAME%", className) //"NEWS"
+        template = template.replace("%CLASSNAME%", 'NEWSAPI') //"NEWS"
         template = template.replace("%AUTHOR%", article.author)
-        var news = document.getElementById("NEWS")
+        var news = document.getElementById("NEWSAPI")
 
         var newsContent = document.getElementById("NEWS_CONTENT")
         news.classList.add("hideArticle")
