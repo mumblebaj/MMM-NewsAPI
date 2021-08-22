@@ -1,6 +1,7 @@
 // Imports
 var NodeHelper = require('node_helper')
-var request = require('request')
+// var request = require('request')
+var fetch = require('node-fetch')
 var moment = require('moment')
 const querystring = require('querystring')
 
@@ -51,7 +52,7 @@ module.exports = NodeHelper.create({
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint1 + qp
         }
-        this.getArticles(callScript, payload)
+        this.getData(callScript, payload)
     },
 
     deconEverything: function(payload){
@@ -85,7 +86,7 @@ module.exports = NodeHelper.create({
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint2 + qp
         }
-        this.getArticles(callScript, payload)
+        this.getData(callScript, payload)
     },
 
     formatResults: function(ret, payload) {
@@ -106,14 +107,25 @@ module.exports = NodeHelper.create({
         this.sendSocketNotification("UPDATE", this.articles)
     },
 
-    getArticles: function(callScript, payload) {
-        var callscript = callScript
-        request (callscript, (error, response, body) => {
-            if (!error && response.statusCode == 200) {
-                var ret = JSON.parse(body)
-                this.formatResults(ret, payload)
-            } else { console.log("Error retrieving data: ", error) }
-        })
+    // getArticles: function(callScript, payload) {
+    //     var callscript = callScript
+    //     request (callscript, (error, response, body) => {
+    //         if (!error && response.statusCode == 200) {
+    //             var ret = JSON.parse(body)
+    //             this.formatResults(ret, payload)
+    //         } else { console.log("Error retrieving data: ", error) }
+    //     })
+    // },
+
+    async getData(callScript, payload) {
+        var response = await fetch(callScript)
+
+        if(!response.statusCode == 200) {
+            console.error(`Error retrieving NewsAPI data: ${response.statusCode} ${response.statusText}`)
+            return;
+        }
+        var parsedResponse = await response.json()
+        this.formatResults(parsedResponse, payload)
     },
 
     // Socket Notification Received
