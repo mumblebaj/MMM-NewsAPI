@@ -7,6 +7,9 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 
 ![Example](screen1.PNG) 
 
+## Updates
+- Replaced request with node-fetch
+
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
@@ -129,5 +132,7 @@ To update the module to the latest version, use your terminal to go to your MMM-
 
 ````
 git pull
+cd MMM-NewsAPI
+npm install
 ```` 
 
