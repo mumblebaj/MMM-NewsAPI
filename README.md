@@ -7,6 +7,10 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 
 ![Example](screen1.PNG) 
 
+## Updates
+- Replaced request with node-fetch
+- Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
+
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
@@ -74,7 +78,6 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         type: "horizontal",
                         choice: "everything",
                         pageSize: 10,
-                        className: "NEWS",
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
@@ -102,7 +105,6 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         type: "horizontal",
                         choice: "headlines",
                         pageSize: 10,
-                        className: "NEWS",
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
@@ -129,5 +131,7 @@ To update the module to the latest version, use your terminal to go to your MMM-
 
 ````
 git pull
+cd MMM-NewsAPI
+npm install
 ```` 
 
