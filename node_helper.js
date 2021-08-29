@@ -107,20 +107,10 @@ module.exports = NodeHelper.create({
         this.sendSocketNotification("UPDATE", this.articles)
     },
 
-    // getArticles: function(callScript, payload) {
-    //     var callscript = callScript
-    //     request (callscript, (error, response, body) => {
-    //         if (!error && response.statusCode == 200) {
-    //             var ret = JSON.parse(body)
-    //             this.formatResults(ret, payload)
-    //         } else { console.log("Error retrieving data: ", error) }
-    //     })
-    // },
-
     async getData(callScript, payload) {
         var response = await fetch(callScript)
 
-        if(!response.statusCode == 200) {
+        if(!response.status == 200) {
             console.error(`Error retrieving NewsAPI data: ${response.statusCode} ${response.statusText}`)
             return;
         }

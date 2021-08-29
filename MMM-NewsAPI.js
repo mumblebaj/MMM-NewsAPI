@@ -73,7 +73,6 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Send Socket Notification and start node_helper
-    // Send Socket Notification and start node_helper
     getInfo: function() {
         if (this.config.choice === "headlines"){
             this.sendSocketNotification("headlines", this.config)
