@@ -2,8 +2,10 @@
 var NodeHelper = require('node_helper')
 // var request = require('request')
 var fetch = require('node-fetch')
-var moment = require('moment')
+// var moment = require('moment')
+var luxon = require('luxon')
 const querystring = require('querystring')
+const DateTime = luxon.DateTime
 
 // Any declarations
 
@@ -96,8 +98,10 @@ module.exports = NodeHelper.create({
         for (j in ret.articles) {
             var article = ret.articles[j]
             article.sourceName = article.source.name
-            var time = moment(article.publishedAt)
-            article.publishedAt = time.fromNow()
+            // var time = moment(article.publishedAt)
+            // article.publishedAt = time.fromNow()
+            luxTime = DateTime.fromISO(article.publishedAt).toRelative()
+            article.publishedAt = luxTime
             if(!article.content) article.content = article.description
             if(!article.author) article.author = ""
             if(!article.description) article.description = article.content
