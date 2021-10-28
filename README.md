@@ -8,6 +8,8 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 ![Example](screen1.PNG) 
 
 ## Updates
+- Add DEBUG Handling.
+- - Only add debug: true to the config section if you are experiencing issues and require more information to find issues.
 - Replaced moment with luxon
 - Replaced request with node-fetch
 - Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
