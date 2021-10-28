@@ -10,6 +10,7 @@ Module.register("MMM-NewsAPI", {
         templateFile: "template.html",
         drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
+        debug: false,
         query: {
             country: "us",
             category: "",
@@ -34,6 +35,7 @@ Module.register("MMM-NewsAPI", {
         this.timer = null
         this.template = ""
         this.newsArticles = []
+        if (this.config.debug) Log.log("config: ", JSON.stringify(this.config))
         // Start function call to node_helper
         this.getInfo()
         // Schedule the next update
@@ -62,18 +64,21 @@ Module.register("MMM-NewsAPI", {
 
     // Schedule the next update
     scheduleUpdate: function(delay) {
+        if (this.config.debug) Log.log("Fetch Interval: ", this.config.fetchInterval)
         var nextLoad = this.config.fetchInterval
         if (typeof delay !== "undefined"  && delay >= 0) {
             nextLoad = delay
         }
         var self = this
         setInterval(function() {
+            if (this.config.debug) Log.log("getting the next batch of data")
             self.getInfo()
         }, nextLoad)
     },
 
     // Send Socket Notification and start node_helper
     getInfo: function() {
+        if (this.config.debug) Log.log("selected choice: ", this.config.choice)
         if (this.config.choice === "headlines"){
             this.sendSocketNotification("headlines", this.config)
         } else if (this.config.choice === "everything") {
@@ -86,6 +91,7 @@ Module.register("MMM-NewsAPI", {
 
     // Receive Socket Notification
     socketNotificationReceived: function(notification, payload) {
+        if (this.config.debug) Log.log("payload received: ", JSON.stringify(payload))
         var self = this
         if (notification === "UPDATE") {
             this.newsArticles = payload

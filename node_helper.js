@@ -54,6 +54,7 @@ module.exports = NodeHelper.create({
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint1 + qp
         }
+        if (payload.debug) console.log("headlines callscript: ", callScript)
         this.getData(callScript, payload)
     },
 
@@ -88,6 +89,7 @@ module.exports = NodeHelper.create({
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint2 + qp
         }
+        if (payload.debug) console.log("everything callscript: ", callScript)
         this.getData(callScript, payload)
     },
 
@@ -108,6 +110,7 @@ module.exports = NodeHelper.create({
             results.push(article)
         }
         if (results.length > 0) this.articles = this.articles.concat(results)
+        if (payload.debug) console.log("sending articles: ", JSON.stringify(this.articles))
         this.sendSocketNotification("UPDATE", this.articles)
     },
 
@@ -119,6 +122,7 @@ module.exports = NodeHelper.create({
             return;
         }
         var parsedResponse = await response.json()
+        if (payload.debug) console.log("response received: ", JSON.stringify(parsedResponse))
         this.formatResults(parsedResponse, payload)
     },
 
