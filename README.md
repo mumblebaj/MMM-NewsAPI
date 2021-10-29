@@ -46,6 +46,7 @@ The following properties can be configured:
 | `choice`                     | Type of query to be instantiated <br><br> **Possible values:** `headlines` or `everything` <br> **Default value:** `headlines`
 | `type`                       | Orientation <br><br> **Possible values:** `horizontal` or `vertical` <br> **Default value:** `horizontal`. Module does currently not cater for vertical
 | `pageSize`                   | The number of articles to be returned. Max = 100 <br> **Default value:** `20`
+| `sortBy`                     | The order to sort the articles in. <br> **Possible values:** `relevancy`, `popularity`, `publishedAt` <br> only available for `choice: "everything"`
 | `drawInterval`               | The amount of time each article is displayed <br> **Default value:** `30 seconds`
 | `templateFile`               | The template file to use. You can create your own template file and reference here. For now use `template.html`
 | `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to 100*60*60 
