@@ -76,7 +76,7 @@ module.exports = NodeHelper.create({
             qs = Object.assign({}, qs, {"domains":d})
             }
             if (q.hasOwnProperty("excludeDomains") && q.excludeDomains !== "") {
-                var ed = q["excludeDoomains"].replace(/\s/g, "")
+                var ed = q["excludeDomains"].replace(/\s/g, "")
                 qs = Object.assign({}, qs, {"excludeDomains":ed})
             }
             if (q.hasOwnProperty("sources") && q.sources !== "") {
