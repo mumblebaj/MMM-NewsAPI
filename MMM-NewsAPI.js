@@ -5,6 +5,7 @@ Module.register("MMM-NewsAPI", {
         type: "horizontal",
         choice: "headlines",
         pageSize: 20,
+        sortBy: "publishedAt",
         timeFormat: "relative",
         // className: "NEWSAPI",
         templateFile: "template.html",
