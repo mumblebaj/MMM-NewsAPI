@@ -50,6 +50,7 @@ module.exports = NodeHelper.create({
                 }
             } 
             qs = Object.assign({}, qs, {"pageSize":payload.pageSize})
+            if (q.hasOwnProperty("sortBy") && q.sortBy !== "") qs = Object.assign({}, qs, {"sortBy":payload.sortBy})
             qs = Object.assign({}, qs, {"apiKey":payload.apiKey})
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint1 + qp
@@ -85,7 +86,7 @@ module.exports = NodeHelper.create({
             }
             if (q.hasOwnProperty("language") && q.language !== "") qs = Object.assign({}, qs, {"language":q["language"]})
             qs = Object.assign({}, qs, {"pageSize":payload.pageSize})
-            qs = Object.assign({}, qs, {"sortBy":payload.sortBy})
+            if (q.hasOwnProperty("sortBy") && q.sortBy !== "") qs = Object.assign({}, qs, {"sortBy":payload.sortBy})
             qs = Object.assign({}, qs, {"apiKey":payload.apiKey})
             var qp = querystring.stringify(qs)
             var callScript = this.endPoint2 + qp

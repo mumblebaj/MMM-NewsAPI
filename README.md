@@ -8,6 +8,7 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 ![Example](screen1.PNG) 
 
 ## Updates
+- Make sortBy an optional parameter for both `headlines` and `everything`
 - Add DEBUG Handling.
 - - Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.
 - Replaced moment with luxon
@@ -82,6 +83,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         type: "horizontal",
                         choice: "everything",
                         pageSize: 10,
+                        sortby: "publishedAt",
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
@@ -109,6 +111,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         type: "horizontal",
                         choice: "headlines",
                         pageSize: 10,
+                        sortBy: "relevance",
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
