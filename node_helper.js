@@ -4,7 +4,7 @@ var NodeHelper = require('node_helper')
 var fetch = require('node-fetch')
 // var moment = require('moment')
 var luxon = require('luxon')
-const querystring = require('querystring')
+const querystring = require('querystring') // querystring has been deprecated and need to be replaced by URLSearchParams possibly
 const DateTime = luxon.DateTime
 
 // Any declarations

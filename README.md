@@ -83,7 +83,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         type: "horizontal",
                         choice: "everything",
                         pageSize: 10,
-                        sortby: "publishedAt",
+                        sortBy: "publishedAt",
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
