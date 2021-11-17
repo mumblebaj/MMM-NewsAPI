@@ -72,7 +72,7 @@ Module.register("MMM-NewsAPI", {
         }
         var self = this
         setInterval(function() {
-            if (this.config.debug) Log.log("getting the next batch of data")
+            //if (this.config.debug) Log.log("getting the next batch of data")
             self.getInfo()
         }, nextLoad)
     },
