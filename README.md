@@ -16,8 +16,8 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 - Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
 
 ## Dependencies
-- luxon 2.0.2
-- node-fetch 2.6.1
+- luxon@2.0.2
+- node-fetch@2.6.1
 
 ## Installation
 
