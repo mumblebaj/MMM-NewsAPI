@@ -15,6 +15,10 @@ A [MagicMirror²](https://magicmirror.builders) module to to get news from [News
 - Replaced request with node-fetch
 - Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
 
+## Dependencies
+- luxon 2.0.2
+- node-fetch 2.6.1
+
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
