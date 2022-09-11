@@ -146,8 +146,8 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
 To update the module to the latest version, use your terminal to go to your MMM-NewsAPI module folder and type the following command:
 
 ````
-git pull
 cd MMM-NewsAPI
+git pull
 npm install
 ```` 
 
