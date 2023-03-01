@@ -110,7 +110,7 @@ Module.register("MMM-NewsAPI", {
     socketNotificationReceived: function(notification, payload) {
         if (this.config.debug) Log.log("payload received: ", JSON.stringify(payload))
         var self = this
-        if (notification === "UPDATE") {
+        if (notification === "NEWSAPI_UPDATE") {
             this.newsArticles = payload
             if (this.firstUpdate == 0) {
                 this.firstUpdate = 1
