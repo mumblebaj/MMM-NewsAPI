@@ -113,7 +113,7 @@ module.exports = NodeHelper.create({
         }
         if (results.length > 0) this.articles = this.articles.concat(results)
         if (payload.debug) console.log("sending articles: ", JSON.stringify(this.articles))
-        this.sendSocketNotification("UPDATE", this.articles)
+        this.sendSocketNotification("NEWSAPI_UPDATE", this.articles)
     },
 
     async getData(callScript, payload) {
