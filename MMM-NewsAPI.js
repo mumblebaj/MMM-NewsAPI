@@ -35,6 +35,7 @@ Module.register("MMM-NewsAPI", {
         this.index = 0
         this.timer = null
         this.template = ""
+        suspended = false;
         this.newsArticles = []
         if (this.config.debug) Log.log("config: ", JSON.stringify(this.config))
         // Start function call to node_helper
@@ -50,13 +51,13 @@ Module.register("MMM-NewsAPI", {
       resume: function () {
         Log.info('Resuming module ' + this.name);
         Log.debug('with config: ' + JSON.stringify(this.config));
-        this.suspend = false;
+        this.suspended = false;
         this.updateDom()
       },
     
       suspend: function () {
         Log.info('Suspending module ' + this.name);
-        this.suspend = true;
+        this.suspended = true;
       },
 
     getDom: function() {
