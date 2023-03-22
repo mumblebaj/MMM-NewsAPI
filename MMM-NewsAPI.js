@@ -12,7 +12,8 @@ Module.register("MMM-NewsAPI", {
         drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
         debug: false,
-        qrCode: false,
+        QRCode: false,
+        QRPadding: 0,
         query: {
             country: "us",
             category: "",
@@ -175,10 +176,11 @@ Module.register("MMM-NewsAPI", {
             news.classList.remove("hideArticle")
             news.classList.add("showArticle")
             newsContent.innerHTML = template
-            if (this.config.qrCode) {
+            if (this.config.QRCode) {
                 var qr = new QRious({
                     element: document.getElementById('NEWSAPI_QRCODE'),
-                    value: article.url
+                    value: article.url,
+                    padding: this.config.QRPadding
                 });
             }
         }, 900)
