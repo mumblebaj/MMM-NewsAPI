@@ -12,6 +12,7 @@ Module.register("MMM-NewsAPI", {
         drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
         debug: false,
+        qrCode: false,
         query: {
             country: "us",
             category: "",
