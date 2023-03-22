@@ -13,7 +13,6 @@ Module.register("MMM-NewsAPI", {
         fetchInterval: 1000*60*60,
         debug: false,
         QRCode: false,
-        QRPadding: 0,
         query: {
             country: "us",
             category: "",
@@ -179,8 +178,7 @@ Module.register("MMM-NewsAPI", {
             if (this.config.QRCode) {
                 var qr = new QRious({
                     element: document.getElementById('NEWSAPI_QRCODE'),
-                    value: article.url,
-                    padding: this.config.QRPadding
+                    value: article.url
                 });
             }
         }, 900)

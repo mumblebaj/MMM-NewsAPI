@@ -92,5 +92,6 @@
   }
 
   #NEWSAPI .article #NEWSAPI_QRCODE {
-    float: left;
+    float: right;
+    margin-left: 20px;
   }
