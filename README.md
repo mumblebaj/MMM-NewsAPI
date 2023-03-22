@@ -19,7 +19,7 @@ If you like my module you can support my work by giving me a star ir buy me a co
 - Replaced moment with luxon
 - Replaced request with node-fetch
 - Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
-- Optional QR code via Qrious
+- Optional QR code via QRious
 
 ## Dependencies
 - luxon@2.0.2
@@ -63,7 +63,8 @@ The following properties can be configured:
 | `templateFile`               | The template file to use. You can create your own template file and reference here. For now use `template.html`
 | `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to 100*60*60 
 | `apiKey`                     | You can obtain an API Key from [NewsAPi.org](https://newsapi.org/)
-| `qrCode`                     | Boolean true/false value to display QR code for article URL. Default is false.
+| `QRCode`                     | Boolean true/false value to display QR code for article URL. Default is false.
+| `QRPadding`                  | Integer value for padding around QR Code. Default is 0.
 
 ## Query Options
 
@@ -99,7 +100,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
                         drawInterval: 1000*30,
                         templateFile: "template.html",
                         fetchInterval: 1000*60*60,
-                        qrCode: true,
+                        QRCode: true,
                         query: {
                                 country: "",
                                 category: "",
