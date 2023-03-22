@@ -64,7 +64,6 @@ The following properties can be configured:
 | `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to 100*60*60 
 | `apiKey`                     | You can obtain an API Key from [NewsAPi.org](https://newsapi.org/)
 | `QRCode`                     | Boolean true/false value to display QR code for article URL. Default is false.
-| `QRPadding`                  | Integer value for padding around QR Code. Default is 0.
 
 ## Query Options
 
