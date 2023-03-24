@@ -24,7 +24,6 @@ If you like my module you can support my work by giving me a star ir buy me a co
 ## Dependencies
 - luxon@2.0.2
 - node-fetch@2.6.1
-- qrious@4.0.2
 
 ## Installation
 
