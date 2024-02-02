@@ -10,6 +10,7 @@ const DateTime = luxon.DateTime
 // Any declarations
 
 module.exports = NodeHelper.create({
+    requiresVersion: '2.21.0',
     // Start function
     start: function() {
         console.log('Starting node_helper for module: ' + this.name)
@@ -31,7 +32,7 @@ module.exports = NodeHelper.create({
                 qs = Object.assign({}, qs, {"sources":t})
             }
             if (q.hasOwnProperty("q") && q.q !== "") qs = Object.assign({}, qs, {"q":q["q"]})
-            if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qIntTitle":q["qInTitle"]})
+            if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qInTitle":q["qInTitle"]})
             if (q.hasOwnProperty("category") && q.category !== "") qs = Object.assign({}, qs, {"category":q["category"]})
             if (q.hasOwnProperty("domains") && q.domains !== "") {
                 var d = q["domains"].replace(/\s/g, "")
@@ -71,7 +72,7 @@ module.exports = NodeHelper.create({
                 console.log("[MMM-NEWSAPI] Invalid Option specified. Country not allowed with 'everything'!")
             }
             if (q.hasOwnProperty("q") && q.q !== "") qs =Object.assign({}, qs, {"q":q["q"]})
-            if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qIntTitle":q["qInTitle"]})
+            if (q.hasOwnProperty("qInTitle") && q.qInTitle !== "") qs = Object.assign({}, qs, {"qInTitle":q["qInTitle"]})
             if (q.hasOwnProperty("domains") && q.domains !== "") {
             var d = q["domains"].replace(/\s/g, "")
             qs = Object.assign({}, qs, {"domains":d})
