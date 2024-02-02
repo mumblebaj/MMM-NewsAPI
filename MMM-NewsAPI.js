@@ -12,6 +12,7 @@ Module.register("MMM-NewsAPI", {
         drawInterval: 1000*30,
         fetchInterval: 1000*60*60,
         debug: false,
+        QRCode: false,
         query: {
             country: "us",
             category: "",
@@ -27,6 +28,11 @@ Module.register("MMM-NewsAPI", {
     // Get the Stylesheet
     getStyles: function() {
         return [this.file("MMM-NewsAPI.css")]
+    },
+    
+    // Import QR code script file
+    getScripts: function() {
+        return ["https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"];
     },
 
     // Start process
@@ -169,7 +175,12 @@ Module.register("MMM-NewsAPI", {
             news.classList.remove("hideArticle")
             news.classList.add("showArticle")
             newsContent.innerHTML = template
-
+            if (this.config.QRCode) {
+                var qr = new QRious({
+                    element: document.getElementById('NEWSAPI_QRCODE'),
+                    value: article.url
+                });
+            }
         }, 900)
         this.timer = setTimeout(() => {
             this.index++

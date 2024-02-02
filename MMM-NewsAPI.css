@@ -90,4 +90,8 @@
   #NEWSAPI.vertical #NEWSAPI_CONTENT {
     padding-bottom:5px;
   }
-  
+
+  #NEWSAPI .article #NEWSAPI_QRCODE {
+    float: right;
+    margin-left: 20px;
+  }
