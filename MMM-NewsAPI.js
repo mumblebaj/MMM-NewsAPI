@@ -54,18 +54,6 @@ Module.register("MMM-NewsAPI", {
         Log.info('Stopping module ' + this.name);
       },
     
-      resume: function () {
-        Log.info('Resuming module ' + this.name);
-        Log.debug('with config: ' + JSON.stringify(this.config));
-        this.suspended = false;
-        this.updateDom()
-      },
-    
-      suspend: function () {
-        Log.info('Suspending module ' + this.name);
-        this.suspended = true;
-      },
-
     getDom: function() {
         var wrapper = document.createElement("div")
         wrapper.id = "NEWSAPI"
