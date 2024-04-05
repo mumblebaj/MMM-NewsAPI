@@ -3,6 +3,7 @@
 
 A [MagicMirror²](https://magicmirror.builders) module to to get news from [NewsAPi.org](https://newsapi.org/).
 
+[![Platform](https://img.shields.io/badge/platform-MagicMirror-informational)](https://MagicMirror.builders)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 ## Support
@@ -13,13 +14,14 @@ If you like my module you can support my work by giving me a star ir buy me a co
 ![Example](screen1.PNG) 
 
 ## Updates
-- Make sortBy an optional parameter for both `headlines` and `everything`
-- Add DEBUG Handling.
-- - Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.
-- Replaced moment with luxon
-- Replaced request with node-fetch
-- Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
-- Optional QR code via QRious
+- [X] Make sortBy an optional parameter for both `headlines` and `everything`
+- [X] Add DEBUG Handling.
+- - [X] Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.
+- [X] Replaced moment with luxon
+- [X] Replaced request with node-fetch
+- [X] Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
+- [X] Optional QR code via QRious
+- [X] Remove QRCode element when option is not selected. This was causing display issues in vertical mode. When selected will display
 
 ## Dependencies
 - luxon@2.0.2

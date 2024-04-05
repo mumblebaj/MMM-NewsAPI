@@ -9,8 +9,8 @@ Module.register("MMM-NewsAPI", {
         timeFormat: "relative",
         // className: "NEWSAPI",
         templateFile: "template.html",
-        drawInterval: 1000*30,
-        fetchInterval: 1000*60*60,
+        drawInterval: 1000 * 30,
+        fetchInterval: 1000 * 60 * 60,
         debug: false,
         QRCode: false,
         query: {
@@ -26,17 +26,17 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Get the Stylesheet
-    getStyles: function() {
+    getStyles: function () {
         return [this.file("MMM-NewsAPI.css")]
     },
-    
+
     // Import QR code script file
-    getScripts: function() {
+    getScripts: function () {
         return ["https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"];
     },
 
     // Start process
-    start: function() {
+    start: function () {
         this.firstUpdate = 0
         this.index = 0
         this.timer = null
@@ -52,9 +52,9 @@ Module.register("MMM-NewsAPI", {
 
     stop: function () {
         Log.info('Stopping module ' + this.name);
-      },
-    
-    getDom: function() {
+    },
+
+    getDom: function () {
         var wrapper = document.createElement("div")
         wrapper.id = "NEWSAPI"
         wrapper.className = this.config.type
@@ -65,7 +65,7 @@ Module.register("MMM-NewsAPI", {
         return wrapper
     },
 
-    notificationReceived: function(noti, payload) {
+    notificationReceived: function (noti, payload) {
         switch (noti) {
             case "DOM_OBJECTS_CREATED":
                 this.readTemplate()
@@ -75,23 +75,23 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Schedule the next update
-    scheduleUpdate: function(delay) {
+    scheduleUpdate: function (delay) {
         if (this.config.debug) Log.log("Fetch Interval: ", this.config.fetchInterval)
         var nextLoad = this.config.fetchInterval
-        if (typeof delay !== "undefined"  && delay >= 0) {
+        if (typeof delay !== "undefined" && delay >= 0) {
             nextLoad = delay
         }
         var self = this
-        setInterval(function() {
+        setInterval(function () {
             //if (this.config.debug) Log.log("getting the next batch of data")
             self.getInfo()
         }, nextLoad)
     },
 
     // Send Socket Notification and start node_helper
-    getInfo: function() {
+    getInfo: function () {
         if (this.config.debug) Log.log("selected choice: ", this.config.choice)
-        if (this.config.choice === "headlines"){
+        if (this.config.choice === "headlines") {
             this.sendSocketNotification("headlines", this.config)
         } else if (this.config.choice === "everything") {
             this.sendSocketNotification("everything", this.config)
@@ -102,7 +102,7 @@ Module.register("MMM-NewsAPI", {
     },
 
     // Receive Socket Notification
-    socketNotificationReceived: function(notification, payload) {
+    socketNotificationReceived: function (notification, payload) {
         if (this.config.debug) Log.log("payload received: ", JSON.stringify(payload))
         var self = this
         if (notification === "NEWSAPI_UPDATE") {
@@ -115,7 +115,7 @@ Module.register("MMM-NewsAPI", {
         }
     },
 
-    readTemplate: function() {
+    readTemplate: function () {
         var file = this.config.templateFile
         var url = "modules/MMM-NewsAPI/" + file
         var xmlHttp = new XMLHttpRequest()
@@ -123,14 +123,14 @@ Module.register("MMM-NewsAPI", {
             var res = []
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) this.template = xmlHttp.responseText
             else if (xmlHttp.status !== 200 && xmlHttp.readyState !== 1) {
-                console.log("A Problem has been encountered retrieving the Template File", "("+xmlHttp.statusText+")")
+                console.log("A Problem has been encountered retrieving the Template File", "(" + xmlHttp.statusText + ")")
             }
         }
         xmlHttp.open("GET", url, true)
         xmlHttp.send()
     },
 
-    draw: function() {
+    draw: function () {
         clearTimeout(this.timer)
         this.timer = null
         const tag = [
@@ -168,6 +168,11 @@ Module.register("MMM-NewsAPI", {
                     element: document.getElementById('NEWSAPI_QRCODE'),
                     value: article.url
                 });
+            } else {
+                var qrCodeElement = document.getElementById('NEWSAPI_QRCODE');
+                if (qrCodeElement) {
+                    qrCodeElement.parentNode.removeChild(qrCodeElement);
+                }
             }
         }, 900)
         this.timer = setTimeout(() => {
