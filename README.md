@@ -78,7 +78,7 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
 | `category`                   | The category you want to get headlines for. <br> Possible options: `business` `entertainment` `general` `health` `science` `sports` `technology`. <br> **Note: you can't mix this param with the sources param.**
 | `q`                          | Keywords or phrases to search for in the article title and body
 | `qInTitle`                   | Keywords or phrases to search for in the article title only
-| `sources`                    | A comma-seperated string of identifiers (maximum 20) for the news sources or blogs you want headlines from 
+| `sources`                    | A comma-seperated string of identifiers (maximum 20) for the news sources or blogs you want headlines from <br> TO obtain a list of sources or sources for your country you can put the following in your browser. `https://newsapi.org/v2/top-headlines/sources?apiKey=your-api-key-here&country=your-country-code-here`
 | `domains`                    | A comma-seperated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to restrict the search to.
 | `excludeDomains`             | A comma-seperated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to remove from the results.
 | `language`                   | The 2-letter ISO-639-1 code of the language you want to get headlines for. Possible options: <br> `ar` `de` `en` `es` `fr` `he` `it` `nl` `no` `pt` `ru` `se` `ud` `zh`
