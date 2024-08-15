@@ -143,7 +143,7 @@ Module.register("MMM-NewsAPI", {
         for (i in tag) {
             var t = tag[i]
             var tu = "%" + t.toUpperCase() + "%"
-            template = template.replace(tu, article[t])
+            template = template.replace(tu, article[t] || '')
         }
 
         var imgtag = (article.urlToImage) ? `<img class="articleImage" src="` + article.urlToImage + `"/>` : ""
