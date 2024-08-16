@@ -14,6 +14,7 @@ If you like my module you can support my work by giving me a star ir buy me a co
 ![Example](screen1.PNG) 
 
 ## Updates
+- [x] Issue raise that null's were displayed for certain information. Update to rather return a blank string. 
 - [X] Make sortBy an optional parameter for both `headlines` and `everything`
 - [X] Add DEBUG Handling.
 - - [X] Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.

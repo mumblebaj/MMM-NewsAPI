@@ -108,9 +108,9 @@ module.exports = NodeHelper.create({
             // article.publishedAt = time.fromNow()
             luxTime = DateTime.fromISO(article.publishedAt).toRelative()
             article.publishedAt = luxTime
-            if(!article.content) article.content = article.description
-            if(!article.author) article.author = ""
-            if(!article.description) article.description = article.content
+            article.content = article.content ? article.content : ""
+            article.author = article.author ? article.author : ""
+            article.description = article.description ? article.description : ""
             results.push(article)
         }
         if (results.length > 0) this.articles = this.articles.concat(results)
