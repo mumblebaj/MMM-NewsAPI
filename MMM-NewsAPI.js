@@ -32,7 +32,7 @@ Module.register("MMM-NewsAPI", {
 
     // Import QR code script file
     getScripts: function () {
-        return ["https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"];
+        return [this.file("node_modules/qrious/dist/qrious.min.js")]
     },
 
     // Start process
