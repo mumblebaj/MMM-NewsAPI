@@ -25,7 +25,8 @@ If you like my module you can support my work by giving me a star ir buy me a co
 - [X] Remove QRCode element when option is not selected. This was causing display issues in vertical mode. When selected will display
 
 ## Dependencies
-- luxon@2.0.2
+
+- luxon@3.5.0
 
 ## Installation
 
