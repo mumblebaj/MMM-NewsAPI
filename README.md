@@ -19,14 +19,13 @@ If you like my module you can support my work by giving me a star ir buy me a co
 - [X] Add DEBUG Handling.
 - - [X] Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.
 - [X] Replaced moment with luxon
-- [X] Replaced request with node-fetch
+- [X] Replaced request with internal fetch
 - [X] Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
 - [X] Optional QR code via QRious
 - [X] Remove QRCode element when option is not selected. This was causing display issues in vertical mode. When selected will display
 
 ## Dependencies
 - luxon@2.0.2
-- node-fetch@2.6.1
 
 ## Installation
 

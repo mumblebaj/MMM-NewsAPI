@@ -21,7 +21,6 @@
   "homepage": "https://github.com/mumblebaj/MMM-NewsAPI#readme",
   "dependencies": {
     "luxon": "^2.0.2",
-    "node-fetch": "^2.6.1",
     "qrious": "^4.0.2"
   }
 }
