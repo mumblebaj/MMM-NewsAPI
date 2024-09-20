@@ -115,19 +115,18 @@ Module.register("MMM-NewsAPI", {
         }
     },
 
-    readTemplate: function () {
-        var file = this.config.templateFile
-        var url = "modules/MMM-NewsAPI/" + file
-        var xmlHttp = new XMLHttpRequest()
-        xmlHttp.onreadystatechange = () => {
-            var res = []
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) this.template = xmlHttp.responseText
-            else if (xmlHttp.status !== 200 && xmlHttp.readyState !== 1) {
-                console.log("A Problem has been encountered retrieving the Template File", "(" + xmlHttp.statusText + ")")
+    async readTemplate() {
+        const file = this.config.templateFile;
+        const url = `modules/MMM-NewsAPI/${file}`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`A Problem has been encountered retrieving the Template File (${response.statusText})`);
             }
+            this.template = await response.text();
+        } catch (error) {
+            console.error(error.message);
         }
-        xmlHttp.open("GET", url, true)
-        xmlHttp.send()
     },
 
     draw: function () {
