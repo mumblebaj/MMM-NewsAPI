@@ -1,58 +1,61 @@
 # MMM-NewsAPI
 
-
 A [MagicMirror²](https://magicmirror.builders) module to to get news from [NewsAPi.org](https://newsapi.org/).
 
 [![Platform](https://img.shields.io/badge/platform-MagicMirror-informational)](https://MagicMirror.builders)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 ## Support
+
 If you like my module you can support my work by giving me a star ir buy me a coffee.
 
 <a href="https://www.buymeacoffee.com/mumblebaj" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Beer" style="height: 45px !important;width: 180px !important;" ></a>
 
-![Example](screen1.PNG) 
+![Example](screenshot1.png)
 
 ## Updates
-- [x] Issue raise that null's were displayed for certain information. Update to rather return a blank string. 
+
+- [x] Issue raise that null's were displayed for certain information. Update to rather return a blank string.
 - [X] Make sortBy an optional parameter for both `headlines` and `everything`
 - [X] Add DEBUG Handling.
 - - [X] Only add `debug: true` to the config section if you are experiencing issues and require more information to find issues.
 - [X] Replaced moment with luxon
-- [X] Replaced request with node-fetch
+- [X] Replaced request with internal fetch
 - [X] Remove the following line from your config `className: "NEWS",`. It is no longer required and module will stop working if not removed.
 - [X] Optional QR code via QRious
 - [X] Remove QRCode element when option is not selected. This was causing display issues in vertical mode. When selected will display
 
 ## Dependencies
-- luxon@2.0.2
-- node-fetch@2.6.1
+
+- luxon@3.5.0
 
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
-````
+
+```bash
 cd ~/MagicMirror/modules
-````
+```
 
 Clone this repository:
-````
-git clone https://github.com/mumblebaj/MMM-NewsAPI.git
-````
+
+```bash
+git clone https://github.com/mumblebaj/MMM-NewsAPI
+```
 
 Add the module to the modules array in the `config/config.js` file:
-````javascript
-  {
-			module: "MMM-NewsAPI",
-			header: "NEWS",
-			position: "bottom_bar",
-  },
-````
+
+```javascript
+    {
+      module: "MMM-NewsAPI",
+      header: "NEWS",
+      position: "bottom_bar",
+    },
+```
 
 ## Configuration options
 
 The following properties can be configured:
-
 
 | Option                       | Description
 | ---------------------------- | -----------
@@ -61,17 +64,18 @@ The following properties can be configured:
 | `type`                       | Orientation <br><br> **Possible values:** `horizontal` or `vertical` <br> **Default value:** `horizontal`. Module does currently not cater for vertical
 | `pageSize`                   | The number of articles to be returned. Max = 100 <br> **Default value:** `20`
 | `sortBy`                     | The order to sort the articles in. <br> **Possible values:** `relevancy`, `popularity`, `publishedAt` <br> only available for `choice: "everything"`
-| `drawInterval`               | The amount of time each article is displayed <br> **Default value:** `30 seconds`
+| `drawInterval`               | The amount of time each article is displayed <br> **Default value:** `30` seconds
 | `templateFile`               | The template file to use. You can create your own template file and reference here. For now use `template.html`
-| `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to 100*60*60 
+| `fetchInterval`              | The time interval between fetching new articles. There is a daily limit of 100 calls per apiKey. Best to set this to `100 * 60 * 60`
 | `apiKey`                     | You can obtain an API Key from [NewsAPi.org](https://newsapi.org/)
 | `QRCode`                     | Boolean true/false value to display QR code for article URL. Default is false.
 
 ## Query Options
 
-**The following query options can be defined** <br>
+**The following query options can be defined:**
+
 When specifying the query options take note of the following: <br>
-When using `headlines`, `country` and `sources` cannot be used together. <br>The `domains` option cannot be used on it's own, you have to specify any of the following parameters with it: `sources`, `q`, `language`, `country`, `category`. <br>When using `everything`, you cannot use the `country` option. <br>To try more combinations you can visit [NewsAPi.org](https://newsapi.org/) 
+When using `headlines`, `country` and `sources` cannot be used together. <br>The `domains` option cannot be used on it's own, you have to specify any of the following parameters with it: `sources`, `q`, `language`, `country`, `category`. <br>When using `everything`, you cannot use the `country` option. <br>To try more combinations you can visit [NewsAPi.org](https://newsapi.org/)
 
 | Option                       | Description
 | ---------------------------- | -----------
@@ -84,76 +88,79 @@ When using `headlines`, `country` and `sources` cannot be used together. <br>The
 | `excludeDomains`             | A comma-seperated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to remove from the results.
 | `language`                   | The 2-letter ISO-639-1 code of the language you want to get headlines for. Possible options: <br> `ar` `de` `en` `es` `fr` `he` `it` `nl` `no` `pt` `ru` `se` `ud` `zh`
 
-
 ## Config Example
-**everything** Example
-````javascript
-  {
-                module: "MMM-NewsAPI",
-                header: "news",
-                position: "bottom_bar",
-                config: {
-                        apiKey: "",
-                        type: "horizontal",
-                        choice: "everything",
-                        pageSize: 10,
-                        sortBy: "publishedAt",
-                        drawInterval: 1000*30,
-                        templateFile: "template.html",
-                        fetchInterval: 1000*60*60,
-                        QRCode: true,
-                        query: {
-                                country: "",
-                                category: "",
-                                q: "",
-                                qInTitle: "",
-                                sources: "",
-                                domains: "cnn.com,nytimes.com,news24.com",
-                                excludeDomains: "",
-                                language: ""
-                        }
-                }
-        },
-````
-**headlines** Example
-````javascript
-  {
-                module: "MMM-NewsAPI",
-                header: "news",
-                position: "bottom_bar",
-                config: {
-                        apiKey: "",
-                        type: "horizontal",
-                        choice: "headlines",
-                        pageSize: 10,
-                        sortBy: "relevance",
-                        drawInterval: 1000*30,
-                        templateFile: "template.html",
-                        fetchInterval: 1000*60*60,
-                        query: {
-                                country: "us",
-                                category: "",
-                                q: "covid",
-                                qInTitle: "",
-                                sources: "",
-                                domains: "nytimes.com",
-                                excludeDomains: "",
-                                language: ""
-                        }
-                }
-        },
-````
 
-**Notes** 
-* `apiKey` is **required**. You should first create an account on https://newsapi.org/ 
+**everything** Example
+
+```javascript
+    {
+        module: "MMM-NewsAPI",
+        header: "news",
+        position: "bottom_bar",
+        config: {
+            apiKey: "",
+            type: "horizontal",
+            choice: "everything",
+            pageSize: 10,
+            sortBy: "publishedAt",
+            drawInterval: 1000*30,
+            templateFile: "template.html",
+            fetchInterval: 1000*60*60,
+            QRCode: true,
+            query: {
+                country: "",
+                category: "",
+                q: "",
+                qInTitle: "",
+                sources: "",
+                domains: "cnn.com,nytimes.com,news24.com",
+                excludeDomains: "",
+                language: ""
+            }
+        }
+    },
+```
+
+**headlines** Example
+
+```javascript
+    {
+        module: "MMM-NewsAPI",
+        header: "news",
+        position: "bottom_bar",
+        config: {
+            apiKey: "",
+            type: "horizontal",
+            choice: "headlines",
+            pageSize: 10,
+            sortBy: "relevance",
+            drawInterval: 1000*30,
+            templateFile: "template.html",
+            fetchInterval: 1000*60*60,
+            query: {
+                country: "us",
+                category: "",
+                q: "covid",
+                qInTitle: "",
+                sources: "",
+                domains: "nytimes.com",
+                excludeDomains: "",
+                language: ""
+            }
+        }
+    },
+```
+
+**Notes**
+
+- `apiKey` is **required**. You should first create an account on <https://newsapi.org/>
 
 ## Updating
 
 To update the module to the latest version, use your terminal to go to your MMM-NewsAPI module folder and type the following command:
 
-````
-cd MMM-NewsAPI
+```bash
+cd ~/MagicMirror/modules/MMM-NewsAPI
 git pull
 npm install
-```` 
-
+```
